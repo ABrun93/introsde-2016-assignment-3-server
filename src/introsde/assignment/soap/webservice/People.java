@@ -28,15 +28,15 @@ public interface People
     public Person readPerson(@WebParam(name="personId") int id);
 
     @WebMethod(operationName="createPerson")
-    @WebResult(name="person") 
-    public int addPerson(@WebParam(name="person") Person person);
+    @WebResult(name="personId") 
+    public int addPerson(@WebParam(name="person", targetNamespace="http://webservice.soap.assignment.introsde/") Person person);
 
     @WebMethod(operationName="updatePerson")
-    @WebResult(name="person") 
-    public int updatePerson(@WebParam(name="person") Person person);
+    @WebResult(name="personId") 
+    public int updatePerson(@WebParam(name="person", targetNamespace="http://webservice.soap.assignment.introsde/") Person person);
 
     @WebMethod(operationName="deletePerson")
-    @WebResult(name="personId") 
+    @WebResult(name="result") 
     public int deletePerson(@WebParam(name="personId") int id);
     
     
@@ -51,15 +51,15 @@ public interface People
     public Measure readMeasure(@WebParam(name="personId") int pId, @WebParam(name="measureTypeId") String typeMeasure, @WebParam(name="measureId") int mId);
     
     @WebMethod(operationName="createMeasure")
-    @WebResult(name="measure") 
-    public int addMeasure(@WebParam(name="personId") int pId, @WebParam(name="measure") Measure measure);
+    @WebResult(name="measureId") 
+    public int addMeasure(@WebParam(name="personId") int pId, @WebParam(name="measure", targetNamespace="http://webservice.soap.assignment.introsde/") Measure measure);
 
     @WebMethod(operationName="updateMeasure")
-    @WebResult(name="measure") 
-    public int updateMeasure(@WebParam(name="personId") int pId, @WebParam(name="measure") Measure measure);
+    @WebResult(name="measureId") 
+    public int updateMeasure(@WebParam(name="personId") int pId, @WebParam(name="measure", targetNamespace="http://webservice.soap.assignment.introsde/") Measure measure);
     
     @WebMethod(operationName="deleteMeasure")
-    @WebResult(name="measureId") 
+    @WebResult(name="result") 
     public int deleteMeasure(@WebParam(name="measureId") int id);
     
     

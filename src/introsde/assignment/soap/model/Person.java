@@ -125,7 +125,18 @@ public class Person implements Serializable
     }
 
     public static Person savePerson(Person p) {
-        EntityManager em = LifeCoachDao.instance.createEntityManager();
+        // Add idP to measures
+    	List<Measure> mList = p.getAllMeasure();
+    	
+    	if(mList != null)
+    	{
+	    	for(Measure m: mList)
+	    	{
+	    		m.setPerson(p);
+	    	}
+    	}
+    	
+    	EntityManager em = LifeCoachDao.instance.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         em.persist(p);

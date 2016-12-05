@@ -43,6 +43,12 @@ public class PeopleImplementation implements People
 
     @Override
     public int updatePerson(Person person) {
+    	if(person == null)
+    	{
+    		System.out.println("Zio billy");
+    		return 1;
+    	}
+    	
     	System.out.println("Update Person with id = " + person.getIdPerson());
     	person = Person.updatePerson(person);
         return person.getIdPerson();
@@ -98,7 +104,17 @@ public class PeopleImplementation implements People
     @Override
     public int addMeasure(int pId, Measure measure) {
     	System.out.println("Save Measure with id = " + measure.getIdMeasure());
-        measure.setPerson(Person.getPersonById(pId));
+        
+    	if(measure.getMeasureType()==null)
+    	{
+    		System.out.println("QUi");
+    	}
+    	else
+    	{
+    		System.out.println("QUa " + measure.getMeasureType().getType());
+    	}
+    	
+    	measure.setPerson(Person.getPersonById(pId));
 		Measure.saveMeasure(measure);
         return measure.getIdMeasure();
     }
